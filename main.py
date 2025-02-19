@@ -4,7 +4,7 @@ from pybit.unified_trading import HTTP
 
 app = Flask(__name__)
 
-# Bybit API Bağlantısı (Yeni API Key'ler Güncellendi)
+# Bybit API Bağlantısı (Güncellenmiş API Key'ler)
 session = HTTP(
     api_key="MdAeXSsw8CQgRoUN1o",  # Yeni API Key
     api_secret="ijwrgCRYl3OwOHjbCyUgbfLfdQWtqPys2QcM",  # Yeni Secret Key
@@ -21,6 +21,13 @@ def get_balance():
         return jsonify(balance)
     except Exception as e:
         return jsonify({"error": str(e)})
+
+@app.route("/check-keys", methods=["GET"])
+def check_keys():
+    return jsonify({
+        "BYBIT_API_KEY": os.environ.get("BYBIT_API_KEY"),
+        "BYBIT_API_SECRET": os.environ.get("BYBIT_API_SECRET")
+    })
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
