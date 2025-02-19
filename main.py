@@ -4,10 +4,10 @@ from pybit.unified_trading import HTTP
 
 app = Flask(__name__)
 
-# Bybit API bağlantısı
+# Bybit API Bağlantısı (Yeni API Key'ler Güncellendi)
 session = HTTP(
-    api_key="8gks2c4UYUcMRfgKVq",
-    api_secret="DTosWpDzt0NZEEszVw2ZFtKCC378wnQamzAi",
+    api_key="MdAeXSsw8CQgRoUN1o",  # Yeni API Key
+    api_secret="ijwrgCRYl3OwOHjbCyUgbfLfdQWtqPys2QcM",  # Yeni Secret Key
 )
 
 @app.route("/")
